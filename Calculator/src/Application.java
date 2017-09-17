@@ -8,61 +8,65 @@ public class Application {
         String str;
 
         while (true) {
-            System.out.println("Введите первое число: ");
-            str = Calc.next();
-            if (str.compareToIgnoreCase("quit") == 0) {
-                return;
-            }
-            try {
-                number1 = Integer.parseInt(str);
-                break;
-            } catch (Throwable t) {
-                System.out.println("Введено некорректное значение. Попробуйте еще раз");
-
-            }
-        }
-        while (true) {
-            System.out.println("Введите знак арифметического действия: ");
-            sign = Calc.next();
-            if (sign.compareToIgnoreCase("quit") == 0) {
-                return;
-            }
-            try {
-                sign = String.valueOf(sign);
-                if (!sign.equals("+") && !sign.equals("-")) {
-                    throw new Error();
+            while (true) {
+                System.out.println("Введите первое число: ");
+                str = Calc.next();
+                if (str.compareToIgnoreCase("quit") == 0) {
+                    return;
                 }
-                break;
-            } catch (Throwable t) {
-                System.out.println("Введено некорректное значение. Попробуйте еще раз");
+                try {
+                    number1 = Integer.parseInt(str);
+                    break;
+                } catch (Throwable t) {
+                    System.out.println("Введено некорректное значение. Попробуйте еще раз");
+
+                }
+            }
+            while (true) {
+                System.out.println("Введите знак арифметического действия: ");
+                sign = Calc.next();
+                if (sign.compareToIgnoreCase("quit") == 0) {
+                    return;
+                }
+                try {
+                    sign = String.valueOf(sign);
+                    if (!sign.equals("+") && !sign.equals("-")) {
+                        throw new Error();
+                    }
+                    break;
+                } catch (Throwable t) {
+                    System.out.println("Введено некорректное значение. Попробуйте еще раз");
+
+                }
+            }
+            while (true) {
+                System.out.println("Введите второе число: ");
+                str = Calc.next();
+                if (str.compareToIgnoreCase("quit") == 0) {
+                    return;
+                }
+                try {
+                    number2 = Integer.parseInt(str);
+                    break;
+                } catch (Throwable t) {
+                    System.out.println("Введено некорректное значение. Попробуйте еще раз");
+                }
 
             }
-        }
-        while (true) {
-            System.out.println("Введите второе число: ");
-            str = Calc.next();
-            if (str.compareToIgnoreCase("quit") == 0) {
-                return;
-            }
-            try {
-                number2 = Integer.parseInt(str);
-                break;
-            } catch (Throwable t) {
-                System.out.println("Введено некорректное значение. Попробуйте еще раз");
 
+            switch (sign) {
+                case "+":
+                    System.out.println("Результат: " + Integer.toString(number1 + number2));
+                    break;
+                case "-":
+                    System.out.println("Результат: " + Integer.toString(number1 - number2));
+                    break;
             }
-        }
-
-        switch (sign) {
-            case "+":
-                System.out.println("Результат: " + Integer.toString(number1 + number2));
-                break;
-            case "-":
-                System.out.println("Результат: " + Integer.toString(number1 - number2));
-                break;
         }
     }
 }
+
+
 
 
 
